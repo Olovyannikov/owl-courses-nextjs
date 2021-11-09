@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+
+  --color-background: #262f37;
+  --color-accent: #00fbee;
+  --color-accent-2: #00e0ff;
+  --color-accent-3: #00efcb;
+  --color-accent-4: #00faed;
+
+  /* Color-typography */
+
+  --color-heading: #1f2326;
+  --color-primary: #1b1b1b;
+  --color-secondary: rgba(27, 27, 27, 0.8);
+  --color-light: rgba(27, 27, 27, 0.6);
+  --color-white: #fff;
+  --color-typo-secondary: rgba(255, 255, 255, 0.8);
+  --color-typo-light: rgba(255, 255, 255, 0.6);
+
+  /* Fonts */
+  --font-alt: "Stapel", "Roboto", sans-serif;
+  --font-family: "Montserrat", var(--font-alt);
+  --font-title: 400 30px / 34.5px var(--font-alt);
+
+  /* Offsets */
+
+  --gap: 32px;
+  --gutter: 24px;
+
+}
