@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "install": "install && gulp",
+    "dev": "gulp && next dev",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
@@ -15,17 +16,24 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@types/classnames": "^2.3.1",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "classnames": "^2.3.1",
     "eslint": "^8.2.0",
     "eslint-config-next": "12.0.3",
+    "gulp": "latest",
+    "gulp-clean": "latest",
+    "gulp-svg-sprite": "latest",
     "sass": "^1.43.4",
     "stylelint": "^14.0.1",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-order-config-standard": "^0.1.3",
+    "svg-sprite-loader": "^6.0.11",
     "typescript": "^4.4.4"
   }
 }

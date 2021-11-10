@@ -3,7 +3,8 @@
     "baseUrl": "./src",
     "paths": {
       "@": ["src"],
-      "@styles": ["src/client/resources/styles/"]
+      "@components": ["src/client/app/components"],
+      "@resources": ["src/client/resources"]
     },
     "target": "es5",
     "lib": [

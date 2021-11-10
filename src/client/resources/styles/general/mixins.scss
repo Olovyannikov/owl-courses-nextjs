@@ -89,6 +89,7 @@
 }
 
 @mixin btn-reset {
+  box-sizing: border-box;
   outline: none;
   border: none;
   padding: 0;
@@ -108,7 +109,7 @@
 }
 
 @function rem-calc($size) {
-  $remSize: $size / 16;
+  $remSize: math.div($size, 16);
 
   @return $remSize * 1rem;
 }
@@ -119,16 +120,16 @@
   @if $vw-enable {
     $vw-context: $vw-viewport * 0.01 * 1px;
 
-    @return $font / $vw-context * 1vw;
+    @return math.div($font, $vw-context) * 1vw;
   }
 
   @return $font
 }
 
 @function vw($x){
-  @return #{100 * $x / 1920}vw;
+  @return #{math.div((100 * $x), 1920)}vw;
 }
 
 @function vm($x){
-  @return #{100 * $x / 360}vw;
+  @return #{math.div((100 * $x), 360)}vw;
 }

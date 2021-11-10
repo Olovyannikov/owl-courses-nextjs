@@ -1,0 +1,43 @@
+.btn {
+  padding: rem-calc(10);
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: rem-calc(5);
+  font-size: rem-calc(14);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+.outlineSecondary {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-lightgray);
+
+  &:hover {
+    border-color: transparent;
+    color: var(--color-white);
+    background-color: var(--color-primary-hover);
+  }
+}
+
+.icon {
+  display: inline-block;
+  margin-left: rem-calc(10);
+
+  svg {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &.down {
+    transform: rotate(90deg);
+  }
+}

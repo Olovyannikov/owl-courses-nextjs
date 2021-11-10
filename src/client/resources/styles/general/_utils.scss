@@ -10,17 +10,3 @@
   white-space: nowrap;
   clip: rect(0 0 0 0);
 }
-
-.title {
-
-  @include sm-block {
-  }
-}
-
-.btn-reset {
-  @include btn-reset;
-}
-
-.list-reset {
-  @include list-reset;
-}
