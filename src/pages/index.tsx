@@ -1,11 +1,24 @@
-import {Button} from "../client/app/components";
+import {useEffect, useState} from "react";
+import {Title,Button} from "@/components/";
 
-export default function Home(): JSX.Element {
+const Home = (): JSX.Element => {
+    const [counter, setCounter] = useState<number>(0);
+
+    useEffect(() => {
+        console.log('Counter: ' + counter);
+        return function clean() {
+            console.log('Unmount');
+        }
+    });
+
     return (
         <>
-
-            <Button icon="right">123</Button>
-            <Button variant="outline-secondary" icon="down">123</Button>
+            <Title variant={'h1'}>
+                {counter}
+            </Title>
+            <Button icon={'right'} onClick={() => setCounter(counter => counter + 1)}>Click Me!</Button>
         </>
     )
 }
+
+export default Home;

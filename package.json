@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "install": "install && gulp",
+    "install": "gulp && next build",
     "dev": "gulp && next dev",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
@@ -25,6 +25,7 @@
     "classnames": "^2.3.1",
     "eslint": "^8.2.0",
     "eslint-config-next": "12.0.3",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "gulp": "latest",
     "gulp-clean": "latest",
     "gulp-svg-sprite": "latest",

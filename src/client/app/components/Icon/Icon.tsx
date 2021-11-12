@@ -1,4 +1,4 @@
-import sprite from '../../../resources/img/sprite/sprite.svg';
+import sprite from '@/sprite';
 import {IIcon} from "./IIcon";
 
 export const Icon = ({width, height, iconName}: IIcon): JSX.Element => {

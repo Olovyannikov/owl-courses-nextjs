@@ -4,7 +4,14 @@ import s from './Button.module.scss';
 import {IButton} from "./IButton";
 import {Icon} from "../Icon/Icon";
 
-export const Button = ({children, variant = 'primary', className, icon = 'none', ...props}: IButton) => {
+export const Button = ({
+                           children,
+                           variant = 'primary',
+                           className,
+                           icon = 'none',
+                           ...props
+                       }: IButton) => {
+
     return (
         <button className={cn(s.btn, className, {
             [s.primary]: variant === 'primary',

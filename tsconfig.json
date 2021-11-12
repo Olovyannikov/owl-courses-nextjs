@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@": ["src"],
-      "@components": ["src/client/app/components"],
-      "@resources": ["src/client/resources"]
+      "@/components/*": ["src/client/app/components/"],
+      "@/sprite": ["src/client/resources/img/sprite/sprite.svg"],
+      "@/styles": ["src/client/resources/styles/style.scss"],
+      "@/resources/*": ["src/client/resources/"]
     },
     "target": "es5",
     "lib": [

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import {AppProps} from "next/dist/shared/lib/router/router";
-import '../client/resources/styles/style.scss';
+import "@/styles";
 
 const MyApp = ({Component, pageProps}: AppProps): JSX.Element => {
     return (

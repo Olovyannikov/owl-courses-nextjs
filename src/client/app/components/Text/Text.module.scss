@@ -1,0 +1,18 @@
+.text {
+  margin: 0;
+
+  &.large {
+    font-size: rem-calc(18);
+    line-height: rem-calc(29);
+  }
+
+  &.medium {
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
+  }
+
+  &.small {
+    font-size: rem-calc(14);
+    line-height: rem-calc(24);
+  }
+}
