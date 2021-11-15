@@ -1,0 +1,26 @@
+.rating {
+  display: flex;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li:last-of-type svg {
+    padding-right: 0;
+  }
+}
+
+.star {
+  box-sizing: content-box;
+  padding-right: 5px;
+  color: #e2e2e2;
+  &.filled {
+    color: var(--color-primary);
+  }
+
+  &.editable {
+    cursor: pointer;
+  }
+}
