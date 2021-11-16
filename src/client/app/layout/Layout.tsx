@@ -8,14 +8,14 @@ import {FunctionComponent} from "react";
 
 const Layout = ({children}: ILayoutProps): JSX.Element => {
     return (
-        <>
-            <Header/>
-            <Main>
-                <Sidebar/>
-                <div>{children}</div>
+        <div className={s.wrapper}>
+            <Header className={s.header}/>
+            <Main className={s.main}>
+                <Sidebar className={s.sidebar}/>
+                <div className={s.content}>{children}</div>
             </Main>
-            <Footer/>
-        </>
+            <Footer className={s.footer}/>
+        </div>
     )
 }
 
