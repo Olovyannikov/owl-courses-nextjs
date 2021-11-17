@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "date-fns": "^2.25.0",
     "next": "12.0.3",
     "react": "17.0.2",
@@ -24,7 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "classnames": "^2.3.1",
-    "eslint": "^8.2.0",
+    "eslint": "^7.32.0",
     "eslint-config-next": "12.0.3",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gulp": "latest",
