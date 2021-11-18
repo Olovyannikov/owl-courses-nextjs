@@ -10,7 +10,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 const firstCategory = 0;
 
 function Course({ menu, page, products }: CourseProps): JSX.Element {
-    return (
+    return ( 
         <>
             {products && products.length}
         </>
