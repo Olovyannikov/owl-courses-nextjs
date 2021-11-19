@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/*":  ["./src/*"],
       "@/components/*": ["src/client/app/components/*"],
-      "@/sprite/": ["src/client/resources/img/sprite/"],
+      "@/sprite/*": ["src/client/resources/img/sprite/*"],
       "@/styles": ["src/client/resources/styles/style.scss"],
       "@/resources/*": ["src/client/resources/"]
     },

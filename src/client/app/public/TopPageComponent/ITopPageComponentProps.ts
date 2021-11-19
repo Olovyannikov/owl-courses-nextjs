@@ -1,9 +1,7 @@
-import {MenuItem} from "@/client/types/menu.interface";
 import {TopLevelCategory, TopPageModel} from "@/client/types/page.interface";
 import {ProductModel} from "@/client/types/product.interface";
 
-interface ITopPageComponentProps extends Record<string, unknown> {
-    menu: MenuItem[];
+export interface ITopPageComponentProps extends Record<string, unknown> {
     firstCategory: TopLevelCategory;
     page: TopPageModel;
     products: ProductModel[];
