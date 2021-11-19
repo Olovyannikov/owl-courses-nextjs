@@ -1,5 +1,5 @@
 .wrapper {
-  margin-top: rem-calc(33);
+  padding-top: rem-calc(33);
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
@@ -21,6 +21,7 @@
   display: grid;
   grid-template-areas: "s c";
   grid-template-columns: rem-calc(230) minmax(320px, 1200px);
+  gap: 30px;
 }
 
 .sidebar {
@@ -37,6 +38,7 @@
 
 @media (max-width: 768px) {
   .wrapper {
+    padding-top: 0;
     grid-template-columns: minmax(320px, 1fr);
     grid-template-areas: "h" "m" "f";
   }
@@ -44,6 +46,7 @@
   .main {
     grid-template-columns: 1fr;
     padding: 0 15px;
+    gap: 0;
   }
 
   .header {

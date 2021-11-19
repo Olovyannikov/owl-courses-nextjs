@@ -1,6 +1,6 @@
 import {withLayout} from "../client/app/layout/Layout";
 import {useState} from "react";
-import {Title, Button, Rating} from "@/components/index";
+import {Title, Button, Rating, Input, Textarea} from "@/components/index";
 import {GetStaticProps} from "next";
 import axios from "axios";
 import {MenuItem} from "../client/types/menu.interface";
@@ -8,7 +8,7 @@ import {MenuItem} from "../client/types/menu.interface";
 const Index = ({menu}: IndexProps): JSX.Element => {
 
     return (
-        <></>
+        <><Textarea/></>
     )
 }
 

@@ -1,0 +1,19 @@
+.input {
+  padding: rem-calc(7) rem-calc(15);
+  color: var(--color-black);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+  font-size: rem-calc(16);
+  line-height: rem-calc(22);
+  background-color: var(--color-white);
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &:focus {
+    outline-color: var(--color-primary);
+  }
+}

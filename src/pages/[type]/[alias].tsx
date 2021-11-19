@@ -6,7 +6,7 @@ import {TopLevelCategory, TopPageModel} from '@/client/types/page.interface';
 import {ParsedUrlQuery} from 'node:querystring';
 import {ProductModel} from '@/client/types/product.interface';
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
-import {firstLevelMenu} from "@/client/helpers/helpers";
+import {firstLevelMenu} from "@/client/utils/utils";
 import {TopPageComponent} from "@/client/app/public";
 
 const TopPage = ({firstCategory, page, products}: TopPageProps): JSX.Element =>

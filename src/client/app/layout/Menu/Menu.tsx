@@ -6,7 +6,7 @@ import {useContext} from "react";
 import {useRouter} from "next/router";
 import {AppContext} from "../../../context/app.context";
 import {FirstLevelMenuItem, PageItem} from "../../../types/menu.interface";
-import {firstLevelMenu} from "../../../helpers/helpers";
+import {firstLevelMenu} from "../../../utils/utils";
 
 export const Menu = (): JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
@@ -42,7 +42,7 @@ export const Menu = (): JSX.Element => {
     const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
         return (
             <div className={s.secondLevelWrapper}>
-                {menu.map(m => {
+                {menu?.map(m => {
                     m.pages.map(p => p.alias).includes(router.asPath.split('/')[2]) ? m.isOpened = true : '';
                     return (
                         <div key={m._id.secondCategory}>

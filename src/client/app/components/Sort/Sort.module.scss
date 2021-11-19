@@ -1,0 +1,26 @@
+.icon {
+  display: none;
+  margin-right: rem-calc(8);
+}
+
+.active .icon {
+  display: block;
+}
+
+.sort {
+  display: flex;
+  gap: 40px;
+
+  button {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000;
+
+    &.active {
+      font-weight: bold;
+      color: var(--color-primary);
+    }
+  }
+}

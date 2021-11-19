@@ -1,7 +1,42 @@
 .header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: center;
+  align-items: baseline;
   justify-items: start;
   gap: rem-calc(20);
+}
+
+.vacancy {
+  margin-bottom: rem-calc(45);
+}
+
+.features {
+  margin-bottom: rem-calc(30);
+}
+
+.skills {
+  margin-bottom: rem-calc(50);
+}
+
+.seo {
+  margin-top: rem-calc(30);
+}
+
+.seo h1 {
+  font-weight: 500;
+  font-size: rem-calc(26);
+  line-height: rem-calc(35);
+}
+
+.seo h2 {
+  margin: rem-calc(25) 0;
+  font-weight: 500;
+  font-size: rem-calc(22);
+  line-height: rem-calc(30);
+}
+
+.seo h3 {
+  font-weight: 700;
+  font-size: rem-calc(20);
+  line-height: rem-calc(27);
 }

@@ -2,6 +2,7 @@ import s from "./VacanciesData.module.scss";
 import {IVacanciesDataProps} from "./IVacanciesDataProps";
 import {Card, Icon} from "@/components/index";
 import cn from "classnames";
+import {priceRu} from "@/client/utils/utils";
 
 export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}: IVacanciesDataProps): JSX.Element => {
     return (
@@ -13,7 +14,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
             <Card className={s.salary} variant={'white'}>
                 <div className={s.content}>
                     <h5 className={s.title}>Начальный</h5>
-                    <div className={s.salaryValue}>{juniorSalary}</div>
+                    <div className={s.salaryValue}>{priceRu(juniorSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>
                             <Icon width={12} height={12} iconName={'star'}/>
@@ -29,7 +30,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
 
                 <div className={s.content}>
                     <h5 className={s.title}>Средний</h5>
-                    <div className={s.salaryValue}>{middleSalary}</div>
+                    <div className={s.salaryValue}>{priceRu(middleSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>
                             <Icon width={12} height={12} iconName={'star'}/>
@@ -45,7 +46,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
 
                 <div className={s.content}>
                     <h5 className={s.title}>Профессионал</h5>
-                    <div className={s.salaryValue}>{seniorSalary}</div>
+                    <div className={s.salaryValue}>{priceRu(seniorSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>
                             <Icon width={12} height={12} iconName={'star'}/>

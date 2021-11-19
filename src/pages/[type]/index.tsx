@@ -2,7 +2,7 @@ import {withLayout} from "../../client/app/layout/Layout";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
 import {MenuItem} from "@/client/types/menu.interface";
-import {firstLevelMenu} from "@/client/helpers/helpers";
+import {firstLevelMenu} from "@/client/utils/utils";
 import {ParsedUrlQuery} from "querystring";
 
 const Type = ({firstCategory}: TypeProps): JSX.Element => {
