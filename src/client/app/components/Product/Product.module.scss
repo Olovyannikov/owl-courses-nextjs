@@ -1,0 +1,277 @@
+.product {
+  padding: 30px;
+  display: grid;
+  grid-template-columns:
+          [start] 70px [logoEnd] 30px [titleStart] calc(50% - 100px) [middle] 1fr [priceStart] auto [priceEnd] 40px [creditStart] auto [creditEnd] 40px [rateStart] auto [rateEnd] auto [end];
+  margin-bottom: 30px;
+}
+
+.logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 70px;
+  max-height: 70px;
+  min-width: 70px;
+  min-height: 70px;
+  grid-column: start / logoEnd;
+  grid-row: 1 / span 2;
+
+  img {
+    border-radius: 5px;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  align-self: end;
+}
+
+.title,
+.tags {
+  grid-column: titleStart / middle;
+}
+
+.tag {
+  margin-top: 7px;
+}
+
+.price,
+.credit {
+  font-size: 20px;
+  line-height: 27px;
+  align-self: end;
+  white-space: nowrap;
+}
+
+.price,
+.priceTitle {
+  display: flex;
+  align-items: center;
+  grid-column: priceStart / priceEnd;
+}
+
+.credit,
+.creditTitle {
+  grid-column: creditStart / creditEnd;
+}
+
+.rating {
+  align-self: center;
+}
+
+.month {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.rating,
+.rateTitle {
+  grid-column: rateStart / end;
+}
+
+.priceTitle,
+.rateTitle,
+.creditTitle {
+  align-self: start;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--color-gray);
+}
+
+.hr {
+  grid-column: start / end;
+}
+
+.description {
+  margin-bottom: rem-calc(15);
+  grid-column: start / end;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.features {
+  grid-column: start / middle;
+}
+
+.advantagesBlock {
+  grid-column: middle / end;
+  font-size: 16px;
+  line-height: 22px;
+
+  h6 {
+    margin: 0 0 rem-calc(5);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.advantages {
+  padding-left: rem-calc(15);
+  border-left: 2px solid var(--color-green);
+  margin-bottom: rem-calc(20);
+}
+
+.disadvantages {
+  padding-left: rem-calc(15);
+  border-left: 2px solid var(--color-red);
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  grid-column: start / end;
+}
+
+.oldPrice {
+  margin-left: 5px;
+}
+
+.chars {
+  padding-right: rem-calc(60);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  font-size: 1rem;
+  line-height: 2rem;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.charsDots {
+  border-bottom: 1px dashed var(--color-lightgray);
+  margin-bottom: 5px;
+  height: 20px;
+}
+
+@media (max-width: 1340px) {
+  .product {
+    grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+    grid-template-areas:
+            "l . t t t t t"
+            "l . tg tg tg tg tg"
+            "p p p . c . r"
+            "pt pt pt . ct . rt"
+            "hr hr hr hr hr hr hr"
+            "d d d d d d d"
+            "f f f f f f f"
+            "ad ad ad ad ad ad ad"
+            "div div div div div div div"
+            "act act act act act act act";
+  }
+
+  .logo {
+    grid-area: l;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    grid-area: t;
+  }
+
+  .tags {
+    grid-area: tg;
+  }
+
+  .price {
+    grid-area: p;
+  }
+
+  .credit {
+    grid-area: c;
+  }
+
+  .rating {
+    grid-area: r;
+  }
+
+  .priceTitle {
+    grid-area: pt;
+  }
+
+  .creditTitle {
+    grid-area: ct;
+  }
+
+  .rateTitle {
+    grid-area: rt;
+  }
+
+  .hr {
+    grid-area: hr;
+  }
+
+  .description {
+    grid-area: d;
+  }
+
+  .features {
+    grid-area: f;
+    margin-bottom: 20px;
+  }
+
+  .advantagesBlock {
+    grid-area: ad;
+  }
+
+  .divider {
+    grid-area: div;
+  }
+
+  .actions {
+    grid-area: act;
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+    grid-template-columns: 70px 30px 1fr;
+    grid-template-areas:
+            "l . t"
+            "l . tg"
+            "pt pt p"
+            "ct ct c"
+            "rt rt r"
+            "hr hr hr"
+            "d d d"
+            "f f f"
+            "ad ad ad"
+            "div div div"
+            "act act act";
+  }
+
+  .tags {
+    margin-bottom: 20px;
+  }
+
+  .price,
+  .credit,
+  .rating {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "l"
+            "t"
+            "tg"
+            "p"
+            "pt"
+            "c"
+            "ct"
+            "r"
+            "rt"
+            "hr"
+            "d"
+            "f"
+            "ad"
+            "div"
+            "act";
+  }
+}

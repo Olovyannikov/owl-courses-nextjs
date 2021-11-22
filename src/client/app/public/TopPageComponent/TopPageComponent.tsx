@@ -1,6 +1,6 @@
 import s from './TopPageComponent.module.scss';
 import {ITopPageComponentProps} from "./ITopPageComponentProps";
-import {Sort, Tag, Title, VacanciesData} from "@/client/app/components";
+import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components";
 import {TopLevelCategory} from "@/client/types/page.interface";
 import {AdvantagesComponent, SkillsComponent} from "../index";
 import {SortEnum} from "@/components/Sort/ISortProps";
@@ -23,7 +23,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
                 <div>
-                    {sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}</div>))}
+                    {sortedProducts && sortedProducts.map(p => (<Product product={p} key={p._id}/>))}
                 </div>
             </div>
 

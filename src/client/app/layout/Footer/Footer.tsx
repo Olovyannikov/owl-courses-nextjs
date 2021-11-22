@@ -9,8 +9,8 @@ export const Footer = ({className, ...props}: IFooterProps):JSX.Element => {
     return (
         <footer className={cn(s.footer, className)} {...props}>
             <span>OwlTop © 2020 - {format(new Date(), 'yyyy')} Все права защищены</span>
-            <Link href={'#'}><a>Пользовательское соглашение</a></Link>
-            <Link href={'#'}><a>Политика конфиденциальности</a></Link>
+            <Link href={'/'}><a>Пользовательское соглашение</a></Link>
+            <Link href={'/'}><a>Политика конфиденциальности</a></Link>
         </footer>
     )
 }

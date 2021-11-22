@@ -34,8 +34,8 @@
 
   &.success {
     border-color: transparent;
-    color: var(--color-lightgreen);
-    background-color: var(--color-green);
+    color: var(--color-green);
+    background-color: var(--color-lightgreen);
 
     &.outline {
       border-color: var(--color-green);

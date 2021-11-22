@@ -4,6 +4,7 @@
   align-items: baseline;
   justify-items: start;
   gap: rem-calc(20);
+  margin-bottom: rem-calc(20);
 }
 
 .vacancy {
@@ -39,4 +40,10 @@
   font-weight: 700;
   font-size: rem-calc(20);
   line-height: rem-calc(27);
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr;
+  }
 }
