@@ -22,7 +22,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     {products && <Tag color={'light'} size={'m'}>{products.length}</Tag>}
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
-                <div>
+                <div className={s.products}>
                     {sortedProducts && sortedProducts.map(p => (<Product product={p} key={p._id}/>))}
                 </div>
             </div>

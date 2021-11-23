@@ -30,7 +30,7 @@ export interface ProductModel {
     createdAt: Date;
     updatedAt: Date;
     html: string;
-    reviews: ReviewModel;
+    reviews: ReviewModel[];
     reviewCount: number;
     reviewAvg?: number;
 }

@@ -32,10 +32,7 @@
 .icon {
   display: inline-block;
   margin-left: rem-calc(10);
-
-  svg {
-    transition: transform 0.3s ease-in-out;
-  }
+  transition: transform 0.3s ease-in-out;
 
   &.down {
     transform: rotate(90deg);

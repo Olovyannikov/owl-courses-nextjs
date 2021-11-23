@@ -1,0 +1,34 @@
+.review {
+  display: grid;
+  align-items: center;
+  grid-template-columns: [start] auto 1fr auto auto [end];
+  gap: 10px;
+  font-size: rem-calc(14);
+  line-height: rem-calc(20);
+}
+
+.descr {
+  grid-column: 1 / -1;
+
+  p {
+    margin: 0;
+  }
+}
+
+.date {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .review {
+    grid-template-columns: [start] 30px [titlestart] auto [dateend] 1fr [end];
+  }
+
+  .name {
+    grid-column: titlestart / -1;
+  }
+
+  .date {
+    grid-column: 1 / dateend;
+  }
+}
