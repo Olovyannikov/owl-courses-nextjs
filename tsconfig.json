@@ -2,11 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*":  ["./src/*"],
+      "@/*": ["src/*"],
+      "@/layout/*": ["src/client/app/layout/*"],
       "@/components/*": ["src/client/app/components/*"],
       "@/sprite/*": ["src/client/resources/img/sprite/*"],
       "@/styles": ["src/client/resources/styles/style.scss"],
-      "@/resources/*": ["src/client/resources/"]
+      "@/resources/*": ["src/client/client/resources/"]
     },
     "target": "es5",
     "lib": [

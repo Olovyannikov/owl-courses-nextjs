@@ -19,6 +19,7 @@ export const Button = ({
         })} type="button" {...props}>{children}{icon !== 'none' &&
         <span className={cn(s.icon, {[s.down]: icon === 'down', [s.right]: icon === 'right'})}>
             <Icon width={6} height={10} iconName={'arrow'}/>
-        </span>}</button>
+        </span>}
+        </button>
     )
 }

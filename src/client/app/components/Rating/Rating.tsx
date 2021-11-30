@@ -1,10 +1,16 @@
 import s from './Rating.module.scss';
 import {IRatingProps} from "./IRatingProps";
-import {useEffect, useState, KeyboardEvent} from "react";
+import {useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef} from "react";
 import {Icon} from "../Icon/Icon";
 import cn from "classnames";
 
-export const Rating = ({isEditable = false, rating, setRating, className, ...props}: IRatingProps): JSX.Element => {
+export const Rating = forwardRef(({
+                                      isEditable = false,
+                                      rating,
+                                      setRating,
+                                      className,
+                                      ...props
+                                  }: IRatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [ratingArr, setRatingArr] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
     useEffect(() => {
@@ -33,10 +39,10 @@ export const Rating = ({isEditable = false, rating, setRating, className, ...pro
     const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => e.code === 'Space' && setRating && setRating(i);
 
     return (
-        <div {...props}>
+        <div {...props} ref={ref}>
             <ul className={s.rating}>
                 {ratingArr.map((r: JSX.Element, i: number) => <li key={i}>{r}</li>)}
             </ul>
         </div>
     )
-}
+});

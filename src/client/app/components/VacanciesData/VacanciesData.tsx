@@ -9,7 +9,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
         <div className={s.vacancyCards}>
             <Card className={s.count} variant={'white'}>
                 <h5 className={s.title}>Всего вакансий</h5>
-                <div className={s.countValue}>{count}</div>
+                <div className={s.countValue}>{priceRu(count).slice(0, -1)}</div>
             </Card>
             <Card className={s.salary} variant={'white'}>
                 <div className={s.content}>

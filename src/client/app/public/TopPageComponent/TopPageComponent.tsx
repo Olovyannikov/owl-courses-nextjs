@@ -23,7 +23,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
                 <div className={s.products}>
-                    {sortedProducts && sortedProducts.map(p => (<Product product={p} key={p._id}/>))}
+                    {sortedProducts?.map(p => (<Product product={p} key={p._id}/>))}
                 </div>
             </div>
 

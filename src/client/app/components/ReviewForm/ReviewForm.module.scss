@@ -1,4 +1,5 @@
 .reviewForm {
+  margin-bottom: 20px;
   font-size: rem-calc(14);
   line-height: rem-calc(24);
   display: grid;
@@ -70,7 +71,6 @@
     }
   }
 }
-
 
 @media (max-width: 768px) {
   .reviewForm {

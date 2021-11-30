@@ -26,7 +26,7 @@ export const Product = ({product, className, ...props}: IProductProps): JSX.Elem
                 <div className={s.price}>
                     {priceRu(product.price)}
                     {product.oldPrice &&
-                    <Tag className={s.oldPrice} color="success">{priceRu(product.price - product.oldPrice)}</Tag>}
+                        <Tag className={s.oldPrice} color="success">{priceRu(product.price - product.oldPrice)}</Tag>}
                 </div>
                 <div className={s.credit}>
                     {priceRu(product.credit)} / <span className={s.month}>мес</span>
@@ -51,15 +51,15 @@ export const Product = ({product, className, ...props}: IProductProps): JSX.Elem
                 </div>
                 <div className={s.advantagesBlock}>
                     {product.advantages &&
-                    <div className={s.advantages}>
-                        <h6>Преимущества</h6>
-                        {product.advantages}
-                    </div>}
+                        <div className={s.advantages}>
+                            <h6>Преимущества</h6>
+                            {product.advantages}
+                        </div>}
                     {product.disadvantages &&
-                    <div className={s.disadvantages}>
-                        <h6>Недостатки</h6>
-                        {product.disadvantages}
-                    </div>}
+                        <div className={s.disadvantages}>
+                            <h6>Недостатки</h6>
+                            {product.disadvantages}
+                        </div>}
                 </div>
                 <Divider className={cn(s.hr, s.divider)}/>
                 <div className={s.actions}>
@@ -72,7 +72,7 @@ export const Product = ({product, className, ...props}: IProductProps): JSX.Elem
                 [s.opened]: isReviewOpened,
                 [s.closed]: !isReviewOpened
             })}>
-                {product.reviews.map(r => <><Review key={r._id} review={r}/> <Divider/></>)}
+                {product.reviews.map(r => <div key={r._id}><Review review={r}/><Divider/></div>)}
                 <ReviewForm productId={product._id}/>
             </Card>
         </>

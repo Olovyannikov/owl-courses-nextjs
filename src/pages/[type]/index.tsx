@@ -1,4 +1,4 @@
-import {withLayout} from "../../client/app/layout/Layout";
+import {withLayout} from "@/layout/Layout";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
 import {MenuItem} from "@/client/types/menu.interface";

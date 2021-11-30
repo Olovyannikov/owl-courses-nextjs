@@ -1,5 +1,4 @@
-import {withLayout} from "../client/app/layout/Layout";
-import {useState} from "react";
+import {withLayout} from '@/client/app/layout/Layout';
 import {Title, Button, Rating, Input, Textarea} from "@/components/index";
 import {GetStaticProps} from "next";
 import axios from "axios";
