@@ -4,16 +4,22 @@ import {IProductProps} from "./IProductProps";
 import cn from "classnames";
 import Image from 'next/image';
 import {declOfNum, priceRu} from "@/client/utils/utils";
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 export const Product = ({product, className, ...props}: IProductProps): JSX.Element => {
 
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+    const reviewsRef = useRef<HTMLDivElement>(null);
+
+    const scrollToReview = () => {
+        setIsReviewOpened(true);
+        reviewsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
 
     return (
-        <>
-            <Card className={cn(s.product, className)}>
-                <div className={s.logo} {...props}>
+        <div className={className} {...props}>
+            <Card className={s.product}>
+                <div className={s.logo} >
                     <Image
                         layout="fixed"
                         width={70}
@@ -36,7 +42,7 @@ export const Product = ({product, className, ...props}: IProductProps): JSX.Elem
                 <div className={s.priceTitle}>Цена</div>
                 <div className={s.creditTitle}>Кредит</div>
                 <div className={s.rateTitle}>
-                    {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+                    <a href="#ref" onClick={scrollToReview}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a>
                 </div>
                 <Divider className={s.hr}/>
                 <div className={s.description}>{product.description}</div>
@@ -71,10 +77,10 @@ export const Product = ({product, className, ...props}: IProductProps): JSX.Elem
             <Card variant="blue" className={cn(s.review, {
                 [s.opened]: isReviewOpened,
                 [s.closed]: !isReviewOpened
-            })}>
+            })} ref={reviewsRef}>
                 {product.reviews.map(r => <div key={r._id}><Review review={r}/><Divider/></div>)}
                 <ReviewForm productId={product._id}/>
             </Card>
-        </>
+        </div>
     )
 }

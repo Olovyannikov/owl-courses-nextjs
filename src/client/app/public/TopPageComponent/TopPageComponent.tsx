@@ -4,15 +4,22 @@ import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components"
 import {TopLevelCategory} from "@/client/types/page.interface";
 import {AdvantagesComponent, SkillsComponent} from "../index";
 import {SortEnum} from "@/components/Sort/ISortProps";
-import {useReducer} from "react";
+import {useEffect, useReducer, useState} from "react";
 import {sortReducer} from "./sort.reducer";
+import {Spinner} from "@/components/Spinner/Spinner";
 
 export const TopPageComponent = ({page, products, firstCategory}: ITopPageComponentProps): JSX.Element => {
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const setSort = (sort: SortEnum) => {
         dispatchSort({type: sort});
-    }
+    };
+
+    useEffect(() => {
+        dispatchSort({type: 'reset', initialState: products});
+        !sortedProducts && setIsLoading(true);
+    }, [products]);
 
     return (
         <div className={s.content}>
@@ -23,6 +30,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
                 <div className={s.products}>
+                    {isLoading && <Spinner/>}
                     {sortedProducts?.map(p => (<Product product={p} key={p._id}/>))}
                 </div>
             </div>

@@ -9,6 +9,7 @@ export const Rating = forwardRef(({
                                       rating,
                                       setRating,
                                       className,
+                                      error,
                                       ...props
                                   }: IRatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [ratingArr, setRatingArr] = useState<JSX.Element[]>(new Array(5).fill(<></>));
@@ -39,10 +40,13 @@ export const Rating = forwardRef(({
     const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => e.code === 'Space' && setRating && setRating(i);
 
     return (
-        <div {...props} ref={ref}>
+        <div className={cn(className, s.wrapper, {
+            [s.errorWrapper]: error
+        })} {...props} ref={ref}>
             <ul className={s.rating}>
                 {ratingArr.map((r: JSX.Element, i: number) => <li key={i}>{r}</li>)}
             </ul>
+            {error && <span className={s.error}>{error.message}</span>}
         </div>
     )
 });

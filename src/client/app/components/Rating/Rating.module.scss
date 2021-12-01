@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .rating {
   display: flex;
 
@@ -23,4 +27,17 @@
   &.editable {
     cursor: pointer;
   }
+}
+
+.errorWrapper {
+  svg {
+    stroke: var(--color-red);
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -20px;
+  color: var(--color-red);
+  white-space: nowrap;
 }

@@ -197,6 +197,10 @@
 
   .rateTitle {
     grid-area: rt;
+
+    a {
+      color: var(--color-primary);
+    }
   }
 
   .hr {
