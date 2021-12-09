@@ -1,10 +1,10 @@
+import cn from "classnames";
+import Link from 'next/link';
+import {Menu} from "../Menu/Menu";
+import {useRouter} from "next/router";
 import s from './Sidebar.module.scss';
 import {ISidebarProps} from "./ISidebarProps";
-import {Menu} from "../Menu/Menu";
 import {Icon, Search} from "@/components/index";
-import cn from "classnames";
-import {useRouter} from "next/router";
-import Link from 'next/link';
 
 export const Sidebar = ({className, ...props}: ISidebarProps): JSX.Element => {
     const router = useRouter();

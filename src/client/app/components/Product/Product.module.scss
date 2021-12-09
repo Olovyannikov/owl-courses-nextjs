@@ -281,16 +281,6 @@
 
 .review {
   margin-top: -15px;
-  margin-bottom: 15px;
-}
-
-.closed {
-  padding: 0;
-  max-height: 0;
   overflow: hidden;
-}
-
-.opened {
-  padding: 30px;
-  max-height: max-content;
+  padding: 30px 30px 0;
 }

@@ -17,7 +17,7 @@
   }
 }
 
-.outlineSecondary {
+.outline-secondary {
   color: var(--color-black);
   background-color: var(--color-white);
   border: 1px solid var(--color-lightgray);
@@ -29,12 +29,31 @@
   }
 }
 
-.icon {
+.arrow {
   display: inline-block;
   margin-left: rem-calc(10);
   transition: transform 0.3s ease-in-out;
 
   &.down {
     transform: rotate(90deg);
+  }
+}
+
+.icon {
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  border-color: transparent;
+
+  svg {
+    color: var(--color-primary);
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      color: var(--color-white);
+    }
   }
 }

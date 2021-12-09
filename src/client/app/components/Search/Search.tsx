@@ -30,7 +30,7 @@ export const Search = ({className, ...props}: ISearchProps): JSX.Element => {
                 // @ts-ignore
                 onKeyDown={handleKeyDown}
             />
-            <Button variant="primary" className={s.button} onClick={getSearch}>
+            <Button icon variant="primary" className={s.button} onClick={getSearch}>
                 <Icon width={15} height={15} iconName='search'/>
             </Button>
         </div>

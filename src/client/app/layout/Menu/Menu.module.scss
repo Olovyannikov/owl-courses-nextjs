@@ -48,16 +48,9 @@
 }
 
 .secondLevelBlock {
-  display: none;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
-
-  &:last-child {
-    margin-bottom: rem-calc(20);
-  }
-
-  &.active {
-    display: flex;
-  }
 }
 
 .thirdLevel {

@@ -45,15 +45,16 @@
 
   .main {
     grid-template-columns: 1fr;
+    grid-template-areas: "c";
     padding: 0 15px;
     gap: 0;
   }
 
-  .header {
-    display: block;
-  }
-
   .sidebar {
     display: none;
+  }
+
+  .header {
+    display: block;
   }
 }

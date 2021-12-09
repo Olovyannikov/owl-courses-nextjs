@@ -6,6 +6,7 @@ import {Footer} from "./Footer/Footer";
 import {ILayoutProps} from "./ILayoutProps";
 import {AppContextProvider, IAppContext} from "../../context/app.context";
 import React, {FunctionComponent} from "react";
+import {Up} from "@/components/index";
 
 const Layout = ({children}: ILayoutProps): JSX.Element => {
     return (
@@ -16,6 +17,7 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                 <div className={s.content}>{children}</div>
             </Main>
             <Footer className={s.footer}/>
+            <Up/>
         </div>
     )
 }

@@ -1,16 +1,17 @@
+import {sortReducer} from "./sort.reducer";
+import {Spinner} from "@/components/index";
+import {useEffect, useReducer} from "react";
 import s from './TopPageComponent.module.scss';
+import {SortEnum} from "@/components/Sort/ISortProps";
+import {AdvantagesComponent, SkillsComponent} from "../index";
+import {TopLevelCategory} from "@/client/types/page.interface";
 import {ITopPageComponentProps} from "./ITopPageComponentProps";
 import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components";
-import {TopLevelCategory} from "@/client/types/page.interface";
-import {AdvantagesComponent, SkillsComponent} from "../index";
-import {SortEnum} from "@/components/Sort/ISortProps";
-import {useEffect, useReducer, useState} from "react";
-import {sortReducer} from "./sort.reducer";
-import {Spinner} from "@/components/Spinner/Spinner";
+import {useScrollY} from "@/client/hooks/useScrollY";
 
 export const TopPageComponent = ({page, products, firstCategory}: ITopPageComponentProps): JSX.Element => {
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const y = useScrollY();
 
     const setSort = (sort: SortEnum) => {
         dispatchSort({type: sort});
@@ -18,7 +19,6 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
 
     useEffect(() => {
         dispatchSort({type: 'reset', initialState: products});
-        !sortedProducts && setIsLoading(true);
     }, [products]);
 
     return (
@@ -30,8 +30,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
                 <div className={s.products}>
-                    {isLoading && <Spinner/>}
-                    {sortedProducts?.map(p => (<Product product={p} key={p._id}/>))}
+                    {sortedProducts?.map(p => (<Product layout product={p} key={p._id}/>))}
                 </div>
             </div>
 
@@ -40,7 +39,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
                     <Title variant={'h2'}>Вакансии - {page?.category}</Title>
                     {sortedProducts && <Tag color={'danger'} size={'m'}>hh.ru</Tag>}
                 </div>
-                {firstCategory == TopLevelCategory.Courses && page.hh && <VacanciesData {...page.hh}/>}
+                {page?.hh ? firstCategory == TopLevelCategory.Courses && page.hh && <VacanciesData {...page.hh}/> : <Spinner/>}
             </div>
 
             <div className={s.features}>

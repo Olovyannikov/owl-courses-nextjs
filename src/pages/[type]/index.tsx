@@ -1,10 +1,10 @@
-import {withLayout} from "@/layout/Layout";
-import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from "axios";
-import {MenuItem} from "@/client/types/menu.interface";
-import {firstLevelMenu} from "@/client/utils/utils";
-import {ParsedUrlQuery} from "querystring";
 import {API} from "@/client/utils/api";
+import {ParsedUrlQuery} from "querystring";
+import {withLayout} from "@/layout/Layout";
+import {firstLevelMenu} from "@/client/utils/utils";
+import {MenuItem} from "@/client/types/menu.interface";
+import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 
 const Type = ({firstCategory}: TypeProps): JSX.Element => {
 

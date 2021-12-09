@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React from 'react';
-import {withLayout} from '@/client/app/layout/Layout';
-import {MenuItem} from '@/client/types/menu.interface';
-import {TopLevelCategory, TopPageModel} from '@/client/types/page.interface';
+import {API} from "@/client/utils/api";
 import {ParsedUrlQuery} from 'node:querystring';
-import {ProductModel} from '@/client/types/product.interface';
-import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
 import {firstLevelMenu} from "@/client/utils/utils";
 import {TopPageComponent} from "@/client/app/public";
-import {API} from "@/client/utils/api";
+import {withLayout} from '@/client/app/layout/Layout';
+import {MenuItem} from '@/client/types/menu.interface';
+import {ProductModel} from '@/client/types/product.interface';
+import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
+import {TopLevelCategory, TopPageModel} from '@/client/types/page.interface';
 
 const TopPage = ({firstCategory, page, products}: TopPageProps): JSX.Element =>
     <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
