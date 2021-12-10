@@ -18,7 +18,8 @@ export const Product = motion(forwardRef(({
 
     const scrollToReview = () => {
         setIsReviewOpened(true);
-        reviewsRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
+        reviewsRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'});
+        reviewsRef.current?.focus();
     }
 
     const variants = {
@@ -69,12 +70,12 @@ export const Product = motion(forwardRef(({
                 <div className={s.advantagesBlock}>
                     {product.advantages &&
                         <div className={s.advantages}>
-                            <h6>Преимущества</h6>
+                            <p>Преимущества</p>
                             {product.advantages}
                         </div>}
                     {product.disadvantages &&
                         <div className={s.disadvantages}>
-                            <h6>Недостатки</h6>
+                            <p>Недостатки</p>
                             {product.disadvantages}
                         </div>}
                 </div>
@@ -86,9 +87,9 @@ export const Product = motion(forwardRef(({
                 </div>
             </Card>
             <Card animate={isReviewOpened ? 'visible' : 'hidden'} variants={variants} initial="hidden" variant="blue"
-                  className={cn(s.review)} ref={reviewsRef}>
+                  className={cn(s.review)}  ref={reviewsRef} tabIndex={isReviewOpened ? 0 : -1}>
                 {product.reviews.map(r => <div key={r._id}><Review review={r}/><Divider/></div>)}
-                <ReviewForm productId={product._id}/>
+                <ReviewForm isOpened={isReviewOpened} productId={product._id}/>
             </Card>
         </div>
     )

@@ -13,7 +13,7 @@ export const Sidebar = ({className, ...props}: ISidebarProps): JSX.Element => {
         <aside className={cn(className, s.sidebar)} {...props} >
             <div className={s.logo}>
                 {router.pathname === '/' ? <Icon width={160} height={43} iconName={'logo'}/> :
-                    <Link href={"/"}><a><Icon width={160} height={43} iconName={'logo'}/></a></Link>}
+                    <Link href={"/"}><a aria-label="Перейти на главную"><Icon width={160} height={43} iconName={'logo'}/></a></Link>}
             </div>
             <div className={s.search}>
                 <Search/>

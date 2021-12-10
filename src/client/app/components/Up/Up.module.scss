@@ -12,7 +12,13 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
   transition: 0.3s ease;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--color-primary-hover);
+    opacity: 1!important;
+  }
+
+  svg {
+    color: var(--color-white);
   }
 }

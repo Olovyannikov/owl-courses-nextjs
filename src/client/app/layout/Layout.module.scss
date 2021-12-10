@@ -30,6 +30,7 @@
 
 .content {
   grid-area: c;
+  outline: none;
 }
 
 .footer {
@@ -56,5 +57,24 @@
 
   .header {
     display: block;
+  }
+}
+
+.skip {
+  display: block;
+  position: fixed;
+  top: -100%;
+  left: 100px;
+  overflow: hidden;
+  height: 0;
+  color: var(--color-white);
+  background: var(--color-primary);
+  outline: none;
+  padding: 10px;
+  transition: 0.3s ease;
+
+  &.displayed {
+    top: 0;
+    height: fit-content;
   }
 }

@@ -9,6 +9,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      svg {
+        stroke: rgba(0, 0, 0, 0.7);
+      }
+    }
   }
 
   li:last-of-type svg {
@@ -20,6 +32,7 @@
   box-sizing: content-box;
   padding-right: 5px;
   color: #e2e2e2;
+
   &.filled {
     color: var(--color-primary);
   }

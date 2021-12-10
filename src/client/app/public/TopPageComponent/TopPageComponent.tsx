@@ -7,11 +7,9 @@ import {AdvantagesComponent, SkillsComponent} from "../index";
 import {TopLevelCategory} from "@/client/types/page.interface";
 import {ITopPageComponentProps} from "./ITopPageComponentProps";
 import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components";
-import {useScrollY} from "@/client/hooks/useScrollY";
 
 export const TopPageComponent = ({page, products, firstCategory}: ITopPageComponentProps): JSX.Element => {
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
-    const y = useScrollY();
 
     const setSort = (sort: SortEnum) => {
         dispatchSort({type: sort});

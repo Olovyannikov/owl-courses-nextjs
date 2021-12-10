@@ -16,12 +16,13 @@ export const Menu = (): JSX.Element => {
     const variants = {
         visible: {
             marginBottom: 20,
+            gap: "5px",
             transition: {
                 when: "beforeChildren",
                 staggerChildren: 0.1
             }
         },
-        hidden: {marginBottom: 0}
+        hidden: {marginBottom: 0, gap: 0}
     }
 
     const variantsChildren = {
@@ -63,16 +64,16 @@ export const Menu = (): JSX.Element => {
                     m.pages.map(p => p.alias).includes(router.asPath.split('/')[2]) ? m.isOpened = true : '';
                     return (
                         <div key={m._id.secondCategory}>
-                            <button className={s.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</button>
-                            <motion.div
+                            <button tabIndex={0} className={s.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</button>
+                            <motion.ul
                                 layout
                                 variants={variants}
                                 initial={m.isOpened ? 'visible' : 'hidden'}
                                 animate={m.isOpened ? 'visible' : 'hidden'}
                                 className={cn(s.secondLevelBlock)}
                             >
-                                {buildThirdLevel(m.pages, menuItem.route)}
-                            </motion.div>
+                                {buildThirdLevel(m.pages, menuItem.route, m.isOpened ?? false)}
+                            </motion.ul>
                         </div>
                     )
                 })}
@@ -80,16 +81,16 @@ export const Menu = (): JSX.Element => {
         )
     }
 
-    const buildThirdLevel = (pages: PageItem[], route: string) => {
+    const buildThirdLevel = (pages: PageItem[], route: string, isOpened: boolean) => {
         return (
             pages.map(p => (
-                <motion.div variants={variantsChildren} key={p._id}>
+                <motion.li variants={variantsChildren} key={p._id}>
                     <Link href={`/${route}/${p.alias}`}>
-                        <a className={cn(s.thirdLevel, {
+                        <a tabIndex={isOpened ? 0 : -1} className={cn(s.thirdLevel, {
                         [s.active]: `/${route}/${p.alias}` == router.asPath
                     })}>{p.category}</a>
                     </Link>
-                </motion.div>
+                </motion.li>
             ))
         )
     }

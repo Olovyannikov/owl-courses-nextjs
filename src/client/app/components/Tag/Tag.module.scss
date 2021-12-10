@@ -34,8 +34,9 @@
 
   &.success {
     border-color: transparent;
-    color: var(--color-green);
+    color: #0d5a3a;
     background-color: var(--color-lightgreen);
+    font-weight: bold;
 
     &.outline {
       border-color: var(--color-green);

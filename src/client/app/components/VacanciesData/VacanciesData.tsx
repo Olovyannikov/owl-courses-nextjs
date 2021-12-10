@@ -8,12 +8,12 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
     return (
         <div className={s.vacancyCards}>
             <Card className={s.count} variant={'white'}>
-                <h5 className={s.title}>Всего вакансий</h5>
+                <p className={s.title}>Всего вакансий</p>
                 <div className={s.countValue}>{priceRu(count).slice(0, -1)}</div>
             </Card>
             <Card className={s.salary} variant={'white'}>
                 <div className={s.content}>
-                    <h5 className={s.title}>Начальный</h5>
+                    <p className={s.title}>Начальный</p>
                     <div className={s.salaryValue}>{priceRu(juniorSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>
@@ -29,7 +29,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
                 </div>
 
                 <div className={s.content}>
-                    <h5 className={s.title}>Средний</h5>
+                    <p className={s.title}>Средний</p>
                     <div className={s.salaryValue}>{priceRu(middleSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>
@@ -45,7 +45,7 @@ export const VacanciesData = ({count, juniorSalary, middleSalary, seniorSalary}:
                 </div>
 
                 <div className={s.content}>
-                    <h5 className={s.title}>Профессионал</h5>
+                    <p className={s.title}>Профессионал</p>
                     <div className={s.salaryValue}>{priceRu(seniorSalary)}</div>
                     <div className={s.rate}>
                         <div className={cn(s.rateBlock, s.filled)}>

@@ -61,11 +61,23 @@
   font-size: rem-calc(14);
   line-height: rem-calc(19);
 
-  &:hover {
+  &:hover, &:focus {
     color: var(--color-primary);
+    text-decoration: underline;
+    outline: none;
   }
 
   &.active {
     color: var(--color-primary);
+  }
+}
+
+.secondLevel {
+  transition: 0.3s ease;
+
+  &:focus-visible {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
   }
 }
