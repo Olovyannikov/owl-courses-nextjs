@@ -1,7 +1,7 @@
 import cn from "classnames";
 import s from './Header.module.scss';
 import {useRouter} from "next/router";
-import { motion } from 'framer-motion';
+import {motion, useReducedMotion} from 'framer-motion';
 import {useEffect, useState} from "react";
 import {Icon} from "@/components/Icon/Icon";
 import {IHeaderProps} from "./IHeaderProps";
@@ -11,6 +11,7 @@ import {Sidebar} from "@/layout/Sidebar/Sidebar";
 export const Header = ({className, ...props}: IHeaderProps) => {
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const router = useRouter();
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         setIsOpened(false);
@@ -18,7 +19,7 @@ export const Header = ({className, ...props}: IHeaderProps) => {
 
     const variants = {
         opened: {opacity: 1, x: 0, transition: {stiffness: 20}},
-        closed: {opacity: 0, x: '100%'}
+        closed: {opacity: shouldReduceMotion ? 1 : 0, x: '100%'}
     }
 
     return (

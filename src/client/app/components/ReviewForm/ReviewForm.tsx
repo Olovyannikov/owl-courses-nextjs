@@ -9,14 +9,13 @@ import {API} from "@/client/utils/api";
 import {useState} from "react";
 
 export const ReviewForm = ({productId, isOpened, className, ...props}: IReviewFormProps): JSX.Element => {
-    const {register, control, handleSubmit, reset, formState: {errors}} = useForm<IReviewForm>();
+    const {register, control, handleSubmit, reset, clearErrors, formState: {errors}} = useForm<IReviewForm>();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [isError, setIsError] = useState<string>();
 
     const onSubmit = async (formData: IReviewForm) => {
         try {
             const {data} = await axios.post<IReviewSendResponse>(API.review.createDemo, {...formData, productId});
-            console.log(data)
             if (data.message) {
                 setIsSuccess(true);
                 reset();
@@ -41,6 +40,7 @@ export const ReviewForm = ({productId, isOpened, className, ...props}: IReviewFo
                             message: "Заполните имя"
                         },
                     })}
+                    aria-invalid={!!errors.name}
                 />
                 <Input
                     tabIndex={isOpened ? 0 : -1} placeholder={'Заголовок отзыва'}
@@ -50,6 +50,7 @@ export const ReviewForm = ({productId, isOpened, className, ...props}: IReviewFo
                         message: "Заполните заголовок"
                     }
                 })}
+                    aria-invalid={!!errors.title}
                 />
                 <div className={s.rating}>
                     <span>Оценка:</span>
@@ -64,27 +65,33 @@ export const ReviewForm = ({productId, isOpened, className, ...props}: IReviewFo
                     />
                 </div>
                 <Textarea
-                    tabIndex={isOpened ? 0 : -1} placeholder={'Текст отзыва'} className={s.textarea}
+                    className={s.textarea}
+                    placeholder={'Текст отзыва'}
+                    tabIndex={isOpened ? 0 : -1}
                     error={errors.description} {...register('description', {
                     required: {
                         value: true,
                         message: "Заполните текст отзыва"
                     }
                 })}
+                    aria-label="Текст отзыва"
+                    aria-invalid={!!errors.description}
                 />
                 <div className={s.submit}>
-                    <Button tabIndex={isOpened ? 0 : -1} type="submit">Отправить</Button>
+                    <Button tabIndex={isOpened ? 0 : -1} onClick={() => clearErrors()} type="submit">Отправить</Button>
                     <span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
                 </div>
             </div>
-            {isSuccess && <div className={cn(s.statusPane, s.success)}>
+            {isSuccess && <div role="alert" className={cn(s.statusPane, s.success)}>
                 <h3>Ваш отзыв отправлен!</h3>
                 <p>Спасибо, ваш отзыв будет опубликован после проверки!</p>
-                <button className={s.close}>Close</button>
+                <button className={s.close}><span className="visually-hidden">Закрыть оповещение</span></button>
             </div>}
-            {isError && <div className={cn(s.statusPane, s.error)}>
+            {isError && <div role="alert" className={cn(s.statusPane, s.error)}>
                 {isError && 'Что-то пошло не так, попробуйте ещё'}
-                <button onClick={() => setIsError(undefined)} className={s.close}>Close</button>
+                <button onClick={() => setIsError(undefined)} className={s.close}>
+                    <span className="visually-hidden">Закрыть оповещение</span>
+                </button>
             </div>}
         </form>
     )

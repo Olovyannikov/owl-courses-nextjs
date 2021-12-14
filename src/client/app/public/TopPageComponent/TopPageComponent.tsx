@@ -7,9 +7,11 @@ import {AdvantagesComponent, SkillsComponent} from "../index";
 import {TopLevelCategory} from "@/client/types/page.interface";
 import {ITopPageComponentProps} from "./ITopPageComponentProps";
 import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components";
+import {useReducedMotion} from "framer-motion";
 
 export const TopPageComponent = ({page, products, firstCategory}: ITopPageComponentProps): JSX.Element => {
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
+    const shouldReduceMotion = useReducedMotion();
 
     const setSort = (sort: SortEnum) => {
         dispatchSort({type: sort});
@@ -20,16 +22,16 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
     }, [products]);
 
     return (
-        <div className={s.content}>
+        <section className={s.content}>
             <div className={s.top}>
                 <div className={s.header}>
                     <Title variant={'h1'}>{page?.title}</Title>
-                    {products && <Tag color={'light'} size={'m'}>{products.length}</Tag>}
+                    {products && <Tag color={'light'} size={'m'} aria-label={`${products.length} элементов`}>{products.length}</Tag>}
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
-                <div className={s.products}>
-                    {sortedProducts?.map(p => (<Product layout product={p} key={p._id}/>))}
-                </div>
+                <ul className={s.products}>
+                    {sortedProducts?.map(p => (<Product layout={!shouldReduceMotion} product={p} key={p._id}/>))}
+                </ul>
             </div>
 
             <div className={s.vacancy}>
@@ -48,6 +50,6 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
             <div className={s.skills}>
                 {page?.tags && <SkillsComponent title={page.tagsTitle} tags={page.tags}/>}
             </div>
-        </div>
+        </section>
     )
 }

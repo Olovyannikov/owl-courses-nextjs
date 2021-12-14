@@ -2,7 +2,7 @@ import s from './Search.module.scss';
 import {ISearchProps} from "./ISearchProps";
 import cn from "classnames";
 import {Button, Icon, Input} from "@/client/app/components";
-import {DetailedHTMLProps, InputHTMLAttributes, useState} from "react";
+import {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState} from "react";
 import {useRouter} from "next/router";
 import {HTMLElement} from "node-html-parser";
 
@@ -22,17 +22,18 @@ export const Search = ({className, ...props}: ISearchProps): JSX.Element => {
     const handleKeyDown = (e: KeyboardEvent) => e.key == 'Enter' && getSearch();
 
     return (
-        <div className={cn(className, s.search)} {...props}>
+        <form className={cn(className, s.search)} {...props} role="search">
             <Input
-                placeholder={'Поиск...'}
+                placeholder='Поиск...'
+                aria-label="Поиск по сайту"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
                 // @ts-ignore
                 onKeyDown={handleKeyDown}
             />
-            <Button icon variant="primary" className={s.button} onClick={getSearch}>
+            <Button aria-label= 'Поиск по сайту' icon variant="primary" className={s.button} onClick={getSearch}>
                 <Icon width={15} height={15} iconName='search'/>
             </Button>
-        </div>
+        </form>
     )
 }

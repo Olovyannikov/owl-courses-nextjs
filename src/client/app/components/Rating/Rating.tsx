@@ -37,6 +37,12 @@ export const Rating = forwardRef(({
                 onMouseEnter={() => changeDisplay(i + 1)}
                 onMouseLeave={() => changeDisplay(rating)}
                 onClick={() => onClick(i + 1)}
+                role={isEditable ? 'slider' : ''}
+                aria-label={isEditable ? 'Укажите рейтинг' : `рейтинг ${rating}`}
+                aria-valuemax={5}
+                aria-valuemin={1}
+                aria-valuenow={rating}
+                aria-invalid={!!error}
             />)
         );
         setRatingArr(updatedArray);
@@ -77,7 +83,7 @@ export const Rating = forwardRef(({
                     {r}
                 </li>)}
             </ul>
-            {error && <span className={s.error}>{error.message}</span>}
+            {error && <span role="alert" className={s.error}>{error.message}</span>}
         </div>
     )
 });

@@ -7,7 +7,13 @@ export const SkillsComponent = ({title, tags}: ISkillsComponentProps): JSX.Eleme
         <>
             <Title variant={'h2'}>{title}</Title>
             <ul className={s.list}>
-                {tags.map(tag => <li key={tag}><Tag variant={'outline'} color={'primary'}>{tag}</Tag></li>)}
+                {tags.map(tag =>
+                    <li key={tag}>
+                        <Tag variant={'outline'} color={'primary'}>
+                            {tag}
+                        </Tag>
+                    </li>
+                )}
             </ul>
         </>
     )

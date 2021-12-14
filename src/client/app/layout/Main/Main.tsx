@@ -3,4 +3,4 @@ import {IMainProps} from './IMainProps';
 import cn from "classnames";
 
 export const Main = ({children, className, ...props}: IMainProps): JSX.Element =>
-    <main className={cn(className, s.main)} {...props}>{children}</main>
+    <main role="main" className={cn(className, s.main)} {...props}>{children}</main>

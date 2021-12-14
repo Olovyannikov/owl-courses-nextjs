@@ -11,7 +11,7 @@ export const Product = motion(forwardRef(({
                                               product,
                                               className,
                                               ...props
-                                          }: IProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+                                          }: IProductProps, ref: ForwardedRef<HTMLLIElement>): JSX.Element => {
 
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
     const reviewsRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ export const Product = motion(forwardRef(({
     };
 
     return (
-        <div className={className} {...props} ref={ref}>
+        <li className={className} {...props} ref={ref}>
             <Card className={s.product}>
                 <div className={s.logo}>
                     <Image
@@ -41,17 +41,25 @@ export const Product = motion(forwardRef(({
                 </div>
                 <div className={s.title}>{product.title}</div>
                 <div className={s.price}>
-                    {priceRu(product.price)}
+                    <span className="visually-hidden">Цена</span>
+                    <span>{priceRu(product.price)}</span>
                     {product.oldPrice &&
-                        <Tag className={s.oldPrice} color="success">{priceRu(product.price - product.oldPrice)}</Tag>}
+                        <Tag className={s.oldPrice} color="success">
+                            <span className="visually-hidden">Скидка</span>
+                            {priceRu(product.price - product.oldPrice)}
+                        </Tag>}
                 </div>
                 <div className={s.credit}>
+                    <span className="visually-hidden">Кредит</span>
                     {priceRu(product.credit)} / <span className={s.month}>мес</span>
                 </div>
-                <div className={s.rating}><Rating rating={product.reviewAvg ?? product.initialRating}/></div>
+                <div className={s.rating}>
+                    <span className="visually-hidden">{`Рейтинг ${product.reviewAvg ?? product.initialRating}`}</span>
+                    <Rating rating={product.reviewAvg ?? product.initialRating}/>
+                </div>
                 <div className={s.tags}>{product.categories.map(c => <Tag className={s.tag} key={c}>{c}</Tag>)}</div>
-                <div className={s.priceTitle}>Цена</div>
-                <div className={s.creditTitle}>Кредит</div>
+                <div className={s.priceTitle} aria-hidden={true}>Цена</div>
+                <div className={s.creditTitle} aria-hidden={true}>Кредит</div>
                 <div className={s.rateTitle}>
                     <a href="#ref"
                        onClick={scrollToReview}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a>
@@ -82,15 +90,21 @@ export const Product = motion(forwardRef(({
                 <Divider className={cn(s.hr, s.divider)}/>
                 <div className={s.actions}>
                     <Button>Узнать подробнее</Button>
-                    <Button onClick={() => setIsReviewOpened(!isReviewOpened)} variant={'outline-secondary'}
-                            arrow={isReviewOpened ? 'down' : 'right'}>Читать отзывы</Button>
+                    <Button
+                        variant={'outline-secondary'}
+                        onClick={() => setIsReviewOpened(!isReviewOpened)}
+                        arrow={isReviewOpened ? 'down' : 'right'}
+                        aria-expanded={isReviewOpened}
+                    >
+                        Читать отзывы
+                    </Button>
                 </div>
             </Card>
             <Card animate={isReviewOpened ? 'visible' : 'hidden'} variants={variants} initial="hidden" variant="blue"
-                  className={cn(s.review)}  ref={reviewsRef} tabIndex={isReviewOpened ? 0 : -1}>
+                  className={cn(s.review)} ref={reviewsRef} tabIndex={isReviewOpened ? 0 : -1}>
                 {product.reviews.map(r => <div key={r._id}><Review review={r}/><Divider/></div>)}
                 <ReviewForm isOpened={isReviewOpened} productId={product._id}/>
             </Card>
-        </div>
+        </li>
     )
 }));
