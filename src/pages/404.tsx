@@ -1,9 +1,11 @@
 import * as React from 'react';
+import {withLayout} from "@/layout/Layout";
+import {Title} from "@/client/app/components";
 
-export const CustomErrorPage = () => {
+export const Error404 = (): JSX.Element => {
 
-    return <>404 Not Found</>;
+    return <Title variant="h1">404 Not Found</Title>;
 
 };
 
-export default CustomErrorPage;
+export default withLayout(Error404);

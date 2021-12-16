@@ -14,16 +14,16 @@ export const Review = ({review, className, ...props}: IReviewProps): JSX.Element
             <Icon className={s.avatar} width={20} height={20} iconName={'user'}/>
             <div className={s.name}>
                 <b>{name}:  </b>
-                <span>{title}:</span>
+                <span>{title && title}:</span>
             </div>
             <div className={s.date}>
-                {format(new Date(createdAt), 'dd MMMM yyyy', {locale: ru})}
+                {createdAt && format(new Date(createdAt), 'dd MMMM yyyy', {locale: ru})}
             </div>
             <div className={s.rate}>
-                <Rating rating={rating}/>
+                <Rating rating={rating && rating}/>
             </div>
             <div className={s.descr}>
-                <p>{description}</p>
+                <p>{description && description}</p>
             </div>
         </div>
     )

@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React from 'react';
-import {Head} from "next/document";
+import Head from "next/head";
+import {Error404} from "@/pages/404";
 import {API} from "@/client/utils/api";
-import {ParsedUrlQuery} from 'node:querystring';
+import {ParsedUrlQuery} from 'querystring';
 import {firstLevelMenu} from "@/client/utils/utils";
 import {TopPageComponent} from "@/client/app/public";
 import {withLayout} from '@/client/app/layout/Layout';
@@ -11,17 +12,22 @@ import {ProductModel} from '@/client/types/product.interface';
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
 import {TopLevelCategory, TopPageModel} from '@/client/types/page.interface';
 
-const TopPage = ({firstCategory, page, products}: TopPageProps): JSX.Element =>
-    <>
-        <Head>
-            <title>{page.metaTitle}</title>
-            <meta name="description" content={page.metaDescription}/>
-            <meta property="og:title" content={page.metaTitle}/>
-            <meta property="og:description" content={page.metaDescription}/>
-            <meta property="og:type" content="article"/>
-        </Head>
-        <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
-    </>
+const TopPage = ({firstCategory, page, products}: TopPageProps): JSX.Element => {
+    if (!page || !products) return <Error404/>;
+
+    return (
+        <>
+            <Head>
+                <title>{page.metaTitle}</title>
+                <meta name="description" content={page.metaDescription}/>
+                <meta property="og:title" content={page.metaTitle}/>
+                <meta property="og:description" content={page.metaDescription}/>
+                <meta property="og:type" content="article"/>
+            </Head>
+            <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
+        </>
+    )
+}
 
 export default withLayout(TopPage);
 

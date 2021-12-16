@@ -8,7 +8,7 @@ export const AdvantagesComponent = ({advantages}: IAdvantagesProps): JSX.Element
         <section>
             <Title className={s.title} variant={'h2'}>Преимущества</Title>
             <ul className={cn(s.list)}>
-                {advantages.map(li =>
+                {advantages?.map(li =>
                     <li className={s.item} key={li._id}>
                         <h6>{li.title}</h6>
                         <p>{li.description}</p>

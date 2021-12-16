@@ -76,15 +76,15 @@ export const Product = motion(forwardRef(({
                     ))}
                 </div>
                 <div className={s.advantagesBlock}>
-                    {product.advantages &&
+                    {product?.advantages &&
                         <div className={s.advantages}>
                             <p>Преимущества</p>
-                            {product.advantages}
+                            {product?.advantages}
                         </div>}
-                    {product.disadvantages &&
+                    {product?.disadvantages &&
                         <div className={s.disadvantages}>
                             <p>Недостатки</p>
-                            {product.disadvantages}
+                            {product?.disadvantages}
                         </div>}
                 </div>
                 <Divider className={cn(s.hr, s.divider)}/>

@@ -28,7 +28,7 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                 onFocus={() => setSkip(true)}
                 onBlur={() => setSkip(false)}
                 onKeyDown={skipContentAction}
-                tabIndex={1} className={cn(s.skip, {[s.displayed]: isSkip})}>
+                tabIndex={0} className={cn(s.skip, {[s.displayed]: isSkip})}>
                 Сразу к содержанию
             </a>
             <Header className={s.header}/>

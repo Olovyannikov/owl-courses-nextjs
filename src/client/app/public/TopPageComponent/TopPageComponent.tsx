@@ -26,7 +26,7 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
             <div className={s.top}>
                 <div className={s.header}>
                     <Title variant={'h1'}>{page?.title}</Title>
-                    {products && <Tag color={'light'} size={'m'} aria-label={`${products.length} элементов`}>{products.length}</Tag>}
+                    {products && <Tag color={'light'} size={'m'} aria-label={`${products?.length} элементов`}>{products?.length}</Tag>}
                     <Sort sort={sort} setSort={setSort}/>
                 </div>
                 <ul className={s.products}>
@@ -44,11 +44,11 @@ export const TopPageComponent = ({page, products, firstCategory}: ITopPageCompon
 
             <div className={s.features}>
                 {page?.advantages && page?.advantages.length > 0 && <AdvantagesComponent advantages={page.advantages}/>}
-                {page?.seoText && <div className={s.seo} dangerouslySetInnerHTML={{__html: page.seoText}}/>}
+                {page?.seoText && <div className={s.seo} dangerouslySetInnerHTML={{__html: page?.seoText}}/>}
             </div>
 
             <div className={s.skills}>
-                {page?.tags && <SkillsComponent title={page.tagsTitle} tags={page.tags}/>}
+                {page?.tags && <SkillsComponent title={page?.tagsTitle} tags={page?.tags}/>}
             </div>
         </section>
     )
