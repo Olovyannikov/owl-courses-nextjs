@@ -1,21 +1,21 @@
 .product {
-  padding: 30px;
   display: grid;
   grid-template-columns:
-          [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px
-          [creditstart] auto [creditend] 40px [ratestart] auto [rateend] auto [end];
+    [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px
+    [creditstart] auto [creditend] 40px [ratestart] auto [rateend] auto [end];
+  padding: 30px;
 }
 
 .logo {
   position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 70px;
-  max-height: 70px;
-  min-width: 70px;
-  min-height: 70px;
   grid-column: start / logoend;
   grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  min-width: 70px;
+  min-height: 70px;
+  max-width: 70px;
+  max-height: 70px;
 
   img {
     border-radius: 5px;
@@ -23,10 +23,10 @@
 }
 
 .title {
+  align-self: end;
   font-weight: 600;
   font-size: 20px;
   line-height: 27px;
-  align-self: end;
 }
 
 .title,
@@ -40,9 +40,9 @@
 
 .price,
 .credit {
+  align-self: end;
   font-size: 20px;
   line-height: 27px;
-  align-self: end;
   white-space: nowrap;
 }
 
@@ -87,8 +87,8 @@
 }
 
 .description {
-  margin-bottom: rem-calc(15);
   grid-column: start / end;
+  margin-bottom: rem-calc(15);
   font-size: 16px;
   line-height: 24px;
 }
@@ -111,20 +111,20 @@
 }
 
 .advantages {
-  padding-left: rem-calc(15);
-  border-left: 2px solid var(--color-green);
   margin-bottom: rem-calc(20);
+  border-left: 2px solid var(--color-green);
+  padding-left: rem-calc(15);
 }
 
 .disadvantages {
-  padding-left: rem-calc(15);
   border-left: 2px solid var(--color-red);
+  padding-left: rem-calc(15);
 }
 
 .actions {
   display: flex;
-  gap: 20px;
   grid-column: start / end;
+  gap: 20px;
 }
 
 .oldPrice {
@@ -132,35 +132,35 @@
 }
 
 .chars {
-  padding-right: rem-calc(60);
   display: grid;
+  align-items: baseline;
   grid-template-columns: auto 1fr auto;
+  padding-right: rem-calc(60);
   font-size: 1rem;
   line-height: 2rem;
-  align-items: baseline;
   gap: 10px;
 }
 
 .charsDots {
-  border-bottom: 1px dashed var(--color-lightgray);
   margin-bottom: 5px;
+  border-bottom: 1px dashed var(--color-lightgray);
   height: 20px;
 }
 
 @media (max-width: 1340px) {
   .product {
-    grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
     grid-template-areas:
-            "l . t t t t t"
-            "l . tg tg tg tg tg"
-            "p p p . c . r"
-            "pt pt pt . ct . rt"
-            "hr hr hr hr hr hr hr"
-            "d d d d d d d"
-            "f f f f f f f"
-            "ad ad ad ad ad ad ad"
-            "div div div div div div div"
-            "act act act act act act act";
+      "l . t t t t t"
+      "l . tg tg tg tg tg"
+      "p p p . c . r"
+      "pt pt pt . ct . rt"
+      "hr hr hr hr hr hr hr"
+      "d d d d d d d"
+      "f f f f f f f"
+      "ad ad ad ad ad ad ad"
+      "div div div div div div div"
+      "act act act act act act act";
+    grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
   }
 
   .logo {
@@ -232,19 +232,19 @@
 
 @media (max-width: 768px) {
   .product {
-    grid-template-columns: 70px 30px 1fr;
     grid-template-areas:
-            "l . t"
-            "l . tg"
-            "pt pt p"
-            "ct ct c"
-            "rt rt r"
-            "hr hr hr"
-            "d d d"
-            "f f f"
-            "ad ad ad"
-            "div div div"
-            "act act act";
+      "l . t"
+      "l . tg"
+      "pt pt p"
+      "ct ct c"
+      "rt rt r"
+      "hr hr hr"
+      "d d d"
+      "f f f"
+      "ad ad ad"
+      "div div div"
+      "act act act";
+    grid-template-columns: 70px 30px 1fr;
   }
 
   .tags {
@@ -260,28 +260,28 @@
 
 @media (max-width: 576px) {
   .product {
-    grid-template-columns: 1fr;
     grid-template-areas:
-            "l"
-            "t"
-            "tg"
-            "p"
-            "pt"
-            "c"
-            "ct"
-            "r"
-            "rt"
-            "hr"
-            "d"
-            "f"
-            "ad"
-            "div"
-            "act";
+      "l"
+      "t"
+      "tg"
+      "p"
+      "pt"
+      "c"
+      "ct"
+      "r"
+      "rt"
+      "hr"
+      "d"
+      "f"
+      "ad"
+      "div"
+      "act";
+    grid-template-columns: 1fr;
   }
 }
 
 .review {
-  margin-top: -15px;
   overflow: hidden;
+  margin-top: -15px;
   padding: 30px 30px 0;
 }
