@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import {Head} from "next/document";
 import {API} from "@/client/utils/api";
 import {ParsedUrlQuery} from 'node:querystring';
 import {firstLevelMenu} from "@/client/utils/utils";
@@ -11,7 +12,16 @@ import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next';
 import {TopLevelCategory, TopPageModel} from '@/client/types/page.interface';
 
 const TopPage = ({firstCategory, page, products}: TopPageProps): JSX.Element =>
-    <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
+    <>
+        <Head>
+            <title>{page.metaTitle}</title>
+            <meta name="description" content={page.metaDescription}/>
+            <meta property="og:title" content={page.metaTitle}/>
+            <meta property="og:description" content={page.metaDescription}/>
+            <meta property="og:type" content="article"/>
+        </Head>
+        <TopPageComponent firstCategory={firstCategory} page={page} products={products}/>
+    </>
 
 export default withLayout(TopPage);
 

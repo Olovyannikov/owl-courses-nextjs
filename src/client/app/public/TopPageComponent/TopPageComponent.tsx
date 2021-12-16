@@ -2,12 +2,12 @@ import {sortReducer} from "./sort.reducer";
 import {Spinner} from "@/components/index";
 import {useEffect, useReducer} from "react";
 import s from './TopPageComponent.module.scss';
+import {useReducedMotion} from 'framer-motion';
 import {SortEnum} from "@/components/Sort/ISortProps";
 import {AdvantagesComponent, SkillsComponent} from "../index";
 import {TopLevelCategory} from "@/client/types/page.interface";
 import {ITopPageComponentProps} from "./ITopPageComponentProps";
 import {Product, Sort, Tag, Title, VacanciesData} from "@/client/app/components";
-import {useReducedMotion} from "framer-motion";
 
 export const TopPageComponent = ({page, products, firstCategory}: ITopPageComponentProps): JSX.Element => {
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});

@@ -1,14 +1,13 @@
-import {withLayout} from '@/client/app/layout/Layout';
-import {Title, Button, Rating, Input, Textarea} from "@/components/index";
-import {GetStaticProps} from "next";
 import axios from "axios";
-import {MenuItem} from "@/client/types/menu.interface";
+import {GetStaticProps} from "next";
 import {API} from "@/client/utils/api";
+import {withLayout} from '@/client/app/layout/Layout';
+import {MenuItem} from "@/client/types/menu.interface";
 
 const Index = ({menu}: IndexProps): JSX.Element => {
 
     return (
-        <><Textarea/></>
+        <></>
     )
 }
 
