@@ -1,10 +1,10 @@
 FROM node:14-alpine
 WORKDIR /opt/app
 ADD package.json package.json
-RUN yarn install
+RUN npm install
 ADD . .
 ENV NODE_ENV production
-RUN yarn build
-RUN yarn install --production
-CMD ['yarn', 'start']
+RUN npm run build
+RUN npm prune --production
+CMD ["npm", "start"]
 EXPOSE 3000

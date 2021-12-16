@@ -1,8 +1,8 @@
 version: "3"
 services:
   app:
-    image: topapp
-    container_name: topapp
+    image: owlapp
+    container_name: owlapp
     restart: always
     ports:
-      - "3000:3000"
+      - 3000:3000
