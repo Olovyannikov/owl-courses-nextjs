@@ -1,9 +1,9 @@
 .tag {
-  box-sizing: border-box;
   display: inline-block;
   margin-right: rem-calc(10);
-  border-radius: rem-calc(20);
   border: 1px solid var(--color-lightgray);
+  border-radius: rem-calc(20);
+  box-sizing: border-box;
   color: var(--color-black);
 
   &.s {
@@ -34,9 +34,9 @@
 
   &.success {
     border-color: transparent;
+    font-weight: 700;
     color: #0d5a3a;
     background-color: var(--color-lightgreen);
-    font-weight: bold;
 
     &.outline {
       border-color: var(--color-green);

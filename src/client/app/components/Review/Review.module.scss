@@ -2,9 +2,9 @@
   display: grid;
   align-items: center;
   grid-template-columns: [start] auto 1fr auto auto [end];
-  gap: 10px;
   font-size: rem-calc(14);
   line-height: rem-calc(20);
+  gap: 10px;
 }
 
 .descr {

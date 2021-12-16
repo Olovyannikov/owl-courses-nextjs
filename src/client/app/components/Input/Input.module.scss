@@ -1,12 +1,12 @@
 .input {
-  padding: rem-calc(7) rem-calc(15);
-  color: var(--color-black);
   border: none;
   border-radius: 5px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  padding: rem-calc(7) rem-calc(15);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
   font-family: inherit;
   font-size: rem-calc(16);
   line-height: rem-calc(22);
+  color: var(--color-black);
   background-color: var(--color-white);
 
   &::placeholder {
@@ -28,7 +28,7 @@
 
 .errorMessage {
   position: absolute;
-  bottom: -20px;
   left: 0;
+  bottom: -20px;
   color: var(--color-red);
 }

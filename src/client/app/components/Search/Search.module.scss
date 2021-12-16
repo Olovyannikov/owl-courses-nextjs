@@ -9,8 +9,8 @@
 
 .button {
   position: absolute;
-  top: 10%;
   right: 3px;
+  top: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,8 +19,8 @@
 
   svg {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
 }

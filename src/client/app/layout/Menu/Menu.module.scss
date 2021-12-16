@@ -15,17 +15,17 @@
 }
 
 .firstLevel {
-  margin-top: rem-calc(20);
   display: grid;
   align-items: center;
   grid-template-columns: rem-calc(24) 1fr;
+  margin-top: rem-calc(20);
   gap: rem-calc(20);
 
-  &.active {
+  &:hover {
     color: var(--color-primary);
   }
 
-  &:hover {
+  &.active {
     color: var(--color-primary);
   }
 }
@@ -33,51 +33,49 @@
 .secondLevelWrapper {
   margin-top: rem-calc(15);
   margin-left: rem-calc(12);
-  padding-left: rem-calc(32);
   border-left: 1px solid #dfdfdf;
+  padding-left: rem-calc(32);
 }
 
 .secondLevel {
   margin-bottom: rem-calc(10);
-  cursor: pointer;
-  text-transform: uppercase;
-  color: var(--color-darkgray);
   font-weight: 700;
   font-size: rem-calc(12);
   line-height: rem-calc(16);
+  text-transform: uppercase;
+  color: var(--color-darkgray);
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    color: var(--color-primary);
+  }
 }
 
 .secondLevelBlock {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .thirdLevel {
   margin-bottom: rem-calc(10);
-  cursor: pointer;
-  color: var(--color-darkgray);
   font-weight: 500;
   font-size: rem-calc(14);
   line-height: rem-calc(19);
+  color: var(--color-darkgray);
+  cursor: pointer;
 
-  &:hover, &:focus {
-    color: var(--color-primary);
-    text-decoration: underline;
+  &:hover,
+  &:focus {
     outline: none;
+    text-decoration: underline;
+    color: var(--color-primary);
   }
 
   &.active {
     color: var(--color-primary);
-  }
-}
-
-.secondLevel {
-  transition: 0.3s ease;
-
-  &:focus-visible {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-decoration-color: var(--color-primary);
   }
 }

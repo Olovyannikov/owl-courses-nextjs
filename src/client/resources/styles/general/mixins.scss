@@ -46,10 +46,6 @@
   }
 }
 
-@mixin burger($burger-width, $burger-height, $burger-line-height) {
-
-}
-
 @mixin bg-cover {
   background-position: center;
   background-size: cover;
@@ -89,10 +85,10 @@
 }
 
 @mixin btn-reset {
-  box-sizing: border-box;
   outline: none;
   border: none;
   padding: 0;
+  box-sizing: border-box;
   background: none;
   cursor: pointer;
 
@@ -123,13 +119,13 @@
     @return math.div($font, $vw-context) * 1vw;
   }
 
-  @return $font
+  @return $font;
 }
 
-@function vw($x){
+@function vw($x) {
   @return #{math.div((100 * $x), 1920)}vw;
 }
 
-@function vm($x){
+@function vm($x) {
   @return #{math.div((100 * $x), 360)}vw;
 }

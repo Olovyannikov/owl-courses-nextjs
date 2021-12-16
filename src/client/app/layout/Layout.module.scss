@@ -1,14 +1,14 @@
 .wrapper {
-  padding-top: rem-calc(33);
   display: grid;
+  grid-template-areas:
+    ". h h ."
+    ". m m ."
+    "f f f f";
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
-  gap: 0 rem-calc(30);
+  padding-top: rem-calc(33);
   min-height: 100vh;
-  grid-template-areas:
-          ". h h ."
-          ". m m ."
-          "f f f f";
+  gap: 0 rem-calc(30);
 }
 
 .header {
@@ -17,8 +17,8 @@
 }
 
 .main {
-  grid-area: m;
   display: grid;
+  grid-area: m;
   grid-template-areas: "s c";
   grid-template-columns: rem-calc(230) minmax(320px, 1200px);
   gap: 30px;
@@ -39,14 +39,14 @@
 
 @media (max-width: 768px) {
   .wrapper {
-    padding-top: 0;
-    grid-template-columns: minmax(320px, 1fr);
     grid-template-areas: "h" "m" "f";
+    grid-template-columns: minmax(320px, 1fr);
+    padding-top: 0;
   }
 
   .main {
-    grid-template-columns: 1fr;
     grid-template-areas: "c";
+    grid-template-columns: 1fr;
     padding: 0 15px;
     gap: 0;
   }
@@ -61,16 +61,16 @@
 }
 
 .skip {
-  display: block;
   position: fixed;
-  top: -100%;
   left: 100px;
+  top: -100%;
+  display: block;
   overflow: hidden;
+  outline: none;
+  padding: 10px;
   height: 0;
   color: var(--color-white);
   background: var(--color-primary);
-  outline: none;
-  padding: 10px;
   transition: 0.3s ease;
 
   &.displayed {

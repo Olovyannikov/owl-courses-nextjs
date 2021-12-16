@@ -1,12 +1,12 @@
 .footer {
-  padding: rem-calc(25) rem-calc(32);
   display: grid;
   align-items: center;
-  gap: rem-calc(10) rem-calc(40);
   grid-template-columns: 1fr;
+  padding: rem-calc(25) rem-calc(32);
   min-height: rem-calc(72);
   color: var(--color-white);
   background-color: var(--color-primary);
+  gap: rem-calc(10) rem-calc(40);
 
   p,
   a {

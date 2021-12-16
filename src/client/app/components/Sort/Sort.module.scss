@@ -23,11 +23,6 @@
     line-height: 22px;
     color: #000;
 
-    &.active {
-      font-weight: bold;
-      color: #563db7;
-    }
-
     &:focus-visible {
       &::after {
         content: "";
@@ -37,6 +32,11 @@
         height: 1px;
         background-color: var(--color-primary);
       }
+    }
+
+    &.active {
+      font-weight: 700;
+      color: #563db7;
     }
   }
 }

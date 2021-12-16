@@ -1,8 +1,8 @@
 .btn {
-  padding: rem-calc(10);
   display: inline-block;
   border: 1px solid transparent;
   border-radius: rem-calc(5);
+  padding: rem-calc(10);
   font-size: rem-calc(14);
   text-align: center;
   transition: 0.3s ease-in-out;
@@ -19,9 +19,9 @@
 }
 
 .outline-secondary {
+  border: 1px solid var(--color-lightgray);
   color: var(--color-black);
   background-color: var(--color-white);
-  border: 1px solid var(--color-lightgray);
 
   &:hover,
   &:focus {
@@ -42,11 +42,11 @@
 }
 
 .icon {
+  border-color: transparent;
   border-radius: 10px;
   width: 40px;
   height: 40px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
-  border-color: transparent;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
 
   svg {
     color: var(--color-primary);
@@ -54,7 +54,6 @@
 
   &:hover,
   &:focus {
-
     svg {
       color: var(--color-white);
     }

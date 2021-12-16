@@ -1,17 +1,17 @@
 .textarea {
+  appearance: none;
   display: block;
+  border: none;
+  border-radius: 5px;
   padding: rem-calc(7) rem-calc(15);
   width: 100%;
   min-height: rem-calc(75);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
   font-family: inherit;
   font-size: rem-calc(16);
   line-height: rem-calc(22);
   color: var(--color-black);
   background-color: var(--color-white);
-  appearance: none;
   resize: none;
 
   &::placeholder {

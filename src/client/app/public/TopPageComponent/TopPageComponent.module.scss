@@ -1,10 +1,10 @@
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: baseline;
   justify-items: start;
-  gap: rem-calc(20);
+  grid-template-columns: auto 1fr auto;
   margin-bottom: rem-calc(20);
+  gap: rem-calc(20);
 }
 
 .vacancy {
